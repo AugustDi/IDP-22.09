@@ -1,10 +1,10 @@
-package com.triare.idp_trainee_junior
+package com.triare.idp_trainee_junior.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.triare.idp_trainee_junior.R
 import com.triare.idp_trainee_junior.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.frContainer, RandomCoffeeFragment.newInstance())
+            .commit()
     }
-
 }
