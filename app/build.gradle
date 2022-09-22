@@ -20,14 +20,18 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "MyApp"
         }
 
         debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix "-debug"
-            resValue "string", "app_name", "AboutCat (debug)"
+            debuggable true
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            buildConfigField "String", "BASE_URL", '"https://coffee.alexflipnote.dev/"'
+            buildConfigField "Boolean", "DEVELOPER_MODE", 'true'
+            resValue "string", "app_name", "MyApp-Dev"
         }
     }
     compileOptions {
