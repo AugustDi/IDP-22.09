@@ -37,7 +37,7 @@ class RandomCoffeeFragment : Fragment() {
 
     private fun subscribeUi() {
         vm.loadingState.onEach {
-            Log.d("LoadingState", "$it")
+            Log.d(TAG, "LoadingState: $it")
             showProgress(it.isLoading)
         }.launchIn(lifecycleScope)
     }
@@ -55,7 +55,7 @@ class RandomCoffeeFragment : Fragment() {
         vm.url.onEach {
             loadCoffee(it?.url)
             if (it?.url.isNullOrBlank()) showEmptyView(true) else showEmptyView(false)
-            Log.d("URL:", "${it?.url}")
+            Log.d(TAG, "URL:${it?.url}")
         }.launchIn(lifecycleScope)
     }
 
@@ -65,17 +65,21 @@ class RandomCoffeeFragment : Fragment() {
         }
     }
 
-
     private fun showEmptyView(isVisible: Boolean) {
         binding.emptyView.visibility = if (isVisible) VISIBLE else GONE
         binding.image.visibility = if (!isVisible) VISIBLE else GONE
+        Log.wtf(TAG, "just for example: $isVisible")
+        Log.i(TAG, "Empty view is shown: $isVisible")
     }
 
     private fun loadCoffee(url: String?) {
         binding.image.load(url)
+        Log.i(TAG, "url: $url")
+        Log.w(TAG, "url can by null mb")
     }
 
     companion object {
         fun newInstance() = RandomCoffeeFragment()
+        const val TAG = "RandomCoffeeFragment"
     }
 }

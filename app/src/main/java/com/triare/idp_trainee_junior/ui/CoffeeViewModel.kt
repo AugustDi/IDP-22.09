@@ -1,5 +1,6 @@
 package com.triare.idp_trainee_junior.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.triare.idp_trainee_junior.base.ReplayMutableSharedFlow
@@ -27,7 +28,12 @@ class CoffeeViewModel : ViewModel() {
             if (result.isSuccess) {
                 _url.tryEmit(result.getOrNull())
                 _loadingState.tryEmit(LoadingState(false))
+            }else {
+                Log.e(TAG, "Something went wrong")
             }
         }
+    }
+    companion object{
+        const val TAG = "CoffeeViewModel"
     }
 }
