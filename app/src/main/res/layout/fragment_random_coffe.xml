@@ -14,11 +14,10 @@
         android:gravity="center"
         android:text="No coffee yet"
         android:textAllCaps="true"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="@color/black"
-        app:drawableTopCompat="@drawable/ic_baseline_cruelty_free_24" />
+        app:drawableTopCompat="@drawable/ic_baseline_cruelty_free_24"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,16 +29,16 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:visibility="gone"
-            tools:visibility="visible"
             app:hideAnimationBehavior="inward"
             app:indicatorColor="@color/teal_700"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <ImageView
-            android:layout_marginBottom="16dp"
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@id/action"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
